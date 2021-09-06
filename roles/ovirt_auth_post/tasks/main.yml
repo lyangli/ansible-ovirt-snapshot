@@ -1,0 +1,8 @@
+---
+# tasks file for ovirt_auth_post
+- name: Always revoke the SSO token
+  ovirt.ovirt.ovirt_auth:
+    state: absent
+    ovirt_auth: "{{ ovirt_auth }}"
+  tags:
+    - always

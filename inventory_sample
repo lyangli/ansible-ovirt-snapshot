@@ -1,0 +1,11 @@
+[prod]
+prod.rhv_prod ansible_host=localhost
+prod.ovirt_prod ansible_host=localhost
+
+[uat]
+uat.ovirt ansible_host=localhost
+
+[dev]
+dev.ovirt ansible_host=localhost
+#dev.ovirt_1 ansible_host=localhost
+

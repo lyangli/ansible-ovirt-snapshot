@@ -1,0 +1,11 @@
+---
+sitename: dev
+application: ovirt
+ovirt_credential:
+  url: https://ovirtengine.example.com/ovirt-engine/api
+  username: example@internal
+  password: "{{ dev_password }}"
+  ca_file: cert/dev/ca.pem
+virtual_machine:
+  - vm1
+  - vm2

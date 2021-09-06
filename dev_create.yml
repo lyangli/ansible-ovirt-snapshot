@@ -1,0 +1,14 @@
+---
+# file: dummy.yml
+- hosts: dev
+  connection: local
+  gather_facts: yes
+  vars_files:
+    - ansiblesvc.yml
+
+  roles:
+    - ovirt_auth_pre
+    - ovirt_snapshots_create
+    - ovirt_snapshots_report
+    - ovirt_auth_post
+    - mail_report_send

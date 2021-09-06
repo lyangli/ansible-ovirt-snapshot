@@ -1,0 +1,8 @@
+---
+# tasks file for ovirt_auth_pre
+- name: Obtain SSO token
+  ovirt.ovirt.ovirt_auth:
+    url: "{{ ovirt_credential.url }}"
+    username: "{{ ovirt_credential.username }}"
+    password: "{{ ovirt_credential.password }}"
+    ca_file: "{{ ovirt_credential.ca_file }}"

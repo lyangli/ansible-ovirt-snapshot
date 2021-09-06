@@ -1,0 +1,29 @@
+---
+# file: roles/ovirt/tasks/main.yml
+- name: Get snapshots info (created by Ansible) 
+  ovirt.ovirt.ovirt_snapshot_info:
+    auth: "{{ ovirt_auth }}"
+    vm: "{{ item }}"
+    description: "*_by_Ansible"
+  register: result
+  loop: "{{ virtual_machine }}"
+
+- name: Output snapshot info (created by Ansible) 
+  ansible.builtin.debug:
+    msg:
+      - "{{ result | json_query(query) }}"
+  vars:
+    query: "results[*].[{vm: item}, ovirt_snapshots[*] | [?snapshot_type == 'regular'].{id:id, date: date, description: description}]"
+
+- name: Delete snapshot (created by Ansible) 
+  ovirt.ovirt.ovirt_snapshot:
+    auth: "{{ ovirt_auth }}"
+    vm_name: "{{ item }}"
+    snapshot_id: "{{ result | json_query(query) }}"
+    state: absent
+    wait: yes
+  loop: "{{ virtual_machine }}"
+  when: (result | json_query(query)) is not none
+  #when: result.changed != false
+  vars:
+    query: "results[?item == '{{ item }}'].ovirt_snapshots[] | [?snapshot_type == 'regular'].id | [0]"
