@@ -5,4 +5,4 @@
     url: "{{ ovirt_credential.url }}"
     username: "{{ ovirt_credential.username }}"
     password: "{{ ovirt_credential.password }}"
-    ca_file: "{{ ovirt_credential.ca_file }}"
+    #ca_file: "{{ ovirt_credential.ca_file }}"

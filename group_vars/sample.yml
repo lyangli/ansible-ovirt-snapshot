@@ -1,5 +1,6 @@
 ---
 env: dev
+debug: true
 mail:
   smtp_server: localhost
   smtp_port: 25
@@ -7,4 +8,4 @@ mail:
   to: email@example.com
   cc: ""
 report:
-  directory: "/ansible/ovirt-snapshot/report/{{ env }}_snapshot_report_{{ ansible_date_time.date }}.csv"
+  directory: "./report/{{ env }}_snapshot_report_{{ ansible_date_time.date }}.csv"

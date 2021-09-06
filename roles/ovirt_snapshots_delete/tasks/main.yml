@@ -12,6 +12,7 @@
   ansible.builtin.debug:
     msg:
       - "{{ result | json_query(query) }}"
+  when: debug
   vars:
     query: "results[*].[{vm: item}, ovirt_snapshots[*] | [?snapshot_type == 'regular'].{id:id, date: date, description: description}]"
 
