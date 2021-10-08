@@ -1,0 +1,13 @@
+---
+# file: dev_list_all.yml
+- hosts: dev
+  connection: local
+  gather_facts: yes
+  vars_files:
+    - ansiblevirtsvc.yml
+
+  roles:
+    - ovirt_auth_pre
+    - ovirt_snapshots_report_list_all
+    - ovirt_auth_post
+    - mail_report_send
