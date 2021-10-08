@@ -4,11 +4,11 @@
   connection: local
   gather_facts: yes
   vars_files:
-    - ansibleusr.yml
-
+    - ansiblevirtsvc.yml
+    
   roles:
     - ovirt_auth_pre
     - ovirt_snapshots_create
-    - ovirt_snapshots_report
+    - ovirt_snapshots_report_by_description
     - ovirt_auth_post
     - mail_report_send

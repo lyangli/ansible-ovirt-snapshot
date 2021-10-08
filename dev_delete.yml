@@ -4,11 +4,16 @@
   connection: local
   gather_facts: yes
   vars_files:
-    - ansibleusr.yml
+    - ansiblevirtsvc.yml
+  vars_prompt:
+    - name: snapshot_description
+      prompt: Please enter snapshot description to delete
+      default: "beforepatch_*_by_Ansible"
+      private: no
     
   roles:
     - ovirt_auth_pre
     - ovirt_snapshots_delete
-    - ovirt_snapshots_report
+    - ovirt_snapshots_report_list_all
     - ovirt_auth_post
     - mail_report_send

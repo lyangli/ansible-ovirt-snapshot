@@ -5,11 +5,13 @@ An ansible playbook to manage oVirt/Red Hat Virtualization(RHV) snaphot.
 ## Prerequisites
 
     1. Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
+
     2. Install dependencies for oVirt Ansible Collection.
         ```sh
         dnf install ansible libcurl-devel libxml2-devel gcc python3-devel python3-passlib python3-netaddr
         pip3 install --user ovirt-engine-sdk-python
         ```
+        
     3. Install oVirt Ansible Collection.
         ```sh
         ansible-galaxy collection install ovirt.ovirt
@@ -67,9 +69,9 @@ Use following files as reference and modify to replace variables with yours.
 
 ## Resources
 
-[Ansible Playbook](http://docs.ansible.com/ansible/latest/playbooks.html)
-[Download oVirt Ansible Collection](https://galaxy.ansible.com/ovirt/ovirt)
-[oVirt Ansible Collection Documentation](https://docs.ansible.com/ansible/latest/collections/ovirt/ovirt/index.html)
+- [Ansible Playbook](http://docs.ansible.com/ansible/latest/playbooks.html)
+- [Download oVirt Ansible Collection](https://galaxy.ansible.com/ovirt/ovirt)
+- [oVirt Ansible Collection Documentation](https://docs.ansible.com/ansible/latest/collections/ovirt/ovirt/index.html)
 
 ## About the Author
 

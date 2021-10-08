@@ -1,5 +1,5 @@
 ---
-# file: roles/ovirt/tasks/main.yml
+# file: roles/ovirt_snapshots_create/tasks/main.yml
 - name: Get snapshots info
   ovirt.ovirt.ovirt_snapshot_info:
     auth: "{{ ovirt_auth }}"
@@ -16,7 +16,7 @@
   vars:
     query: "results[*].[{vm: item}, ovirt_snapshots[*] | [?snapshot_type == 'regular'].{id:id, date: date, description: description}]"
 
-- name: Create snapshot (vm with no exisiting snapshot)
+- name: Create snapshot (if no exisiting snapshot)
   ovirt.ovirt.ovirt_snapshot:
     auth: "{{ ovirt_auth }}"
     vm_name: "{{ item }}"
