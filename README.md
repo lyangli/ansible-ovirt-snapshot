@@ -1,6 +1,6 @@
 # oVirt snapsot
 
-An ansible playbook to manage oVirt/Red Hat Virtualization(RHV) snaphot.
+An ansible playbook to manage oVirt/Red Hat Virtualization(RHV) snapshot.
 
 ## Prerequisites
 
