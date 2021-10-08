@@ -4,46 +4,46 @@ An ansible playbook to manage oVirt/Red Hat Virtualization(RHV) snaphot.
 
 ## Prerequisites
 
-    1. Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
+1. Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
-    2. Install dependencies for oVirt Ansible Collection.
-        ```sh
-        dnf install ansible libcurl-devel libxml2-devel gcc python3-devel python3-passlib python3-netaddr
-        pip3 install --user ovirt-engine-sdk-python
-        ```
-        
-    3. Install oVirt Ansible Collection.
-        ```sh
-        ansible-galaxy collection install ovirt.ovirt
-        ```
+2. Install dependencies for oVirt Ansible Collection.
+    ```sh
+    dnf install ansible libcurl-devel libxml2-devel gcc python3-devel python3-passlib python3-netaddr
+    pip3 install --user ovirt-engine-sdk-python
+    ```
+
+3. Install oVirt Ansible Collection.
+    ```sh
+    ansible-galaxy collection install ovirt.ovirt
+    ```
 
 ## Configuration
 
 Use following files as reference and modify to replace variables with yours.
 
 ### 1. inventory_sample.yml
-    - Define oVirt/RHV server to connect to.
+- Define oVirt/RHV server to connect to.
 
 ### 2. group_vars/sample.yml
-    - Email report configuration
+- Email report configuration
 
 ### 3. host_vars/sample.yml
-    - oVirt/RHV configuration
-    - List of VM to snapshots
+- oVirt/RHV configuration
+- List of VM to snapshots
 
 ### 4. dev_create.yml
-    - Playbook to create snapshot for VM in the list.
-    - Created snapshot description format is `beforepatch_<yyyy-mm-dd>_by_Ansible`.
+- Playbook to create snapshot for VM in the list.
+- Created snapshot description format is `beforepatch_<yyyy-mm-dd>_by_Ansible`.
 
 ### 5. dev_delete.yml
-    - Playbook to delete snapshot for VM in the list.
-    - Default snapshot query string is `beforepatch_*_by_Ansible`.
+- Playbook to delete snapshot for VM in the list.
+- Default snapshot query string is `beforepatch_*_by_Ansible`.
 
 ### 6. dev_list_all.uml
-    - Playbook to list all the snapshots for in the list.
+- Playbook to list all the snapshots for in the list.
 
 ### 7. ansiblevirtsvc.yml (Ansible Vault)
-    - Store the oVirt/RHV ansible service account password in variable `ovirt_credential.password`
+- Store the oVirt/RHV ansible service account password in variable `ovirt_credential.password`.
 
 ## How to run 
 
